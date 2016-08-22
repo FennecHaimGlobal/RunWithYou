@@ -89,6 +89,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -352,6 +354,19 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RunWithYouBusiness\RunWithYouBusiness.csproj">
+      <Project>{90aa2bfc-009a-40a4-8601-34b70cf3d1d1}</Project>
+      <Name>RunWithYouBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RunWithYouEntities\RunWithYouEntities.csproj">
+      <Project>{0b5dce31-47fd-4f04-8efb-e9a242ea2c3d}</Project>
+      <Name>RunWithYouEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RunWithYouEntities.Users;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace RunWithYou.Models
@@ -64,10 +65,13 @@ namespace RunWithYou.Models
 
     public class RegisterViewModel
     {
+        //[Required]
+        //[EmailAddress]
+        //[Display(Name = "Email")]
+        //public string Email { get; set; }
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -79,6 +83,8 @@ namespace RunWithYou.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public UsersInformations UserInformation { get; set; }
     }
 
     public class ResetPasswordViewModel
