@@ -8,21 +8,21 @@ using RunWithYouData;
 
 namespace RunWithYouBusiness
 {
-    public class UsersManager: IUsersManager
+    public class TrailsManager: ITrailsManager
     {
         #region Members
 
         /// <summary>
         /// The _instance
         /// </summary>
-        private static IUsersManager _instance;
+        private static ITrailsManager _instance;
 
         /// <summary>
         /// The _locker
         /// </summary>
         private static object _locker = new object();
 
-        private IUsersDataProvider usersDataProvider = UsersDataProvider.GetInstance;
+        private ITrailsDataProvider _trailsDataProvider = TrailsDataProvider.GetInstance;
 
         #endregion
 
@@ -33,7 +33,7 @@ namespace RunWithYouBusiness
         /// <value>
         /// The get instance.
         /// </value>
-        public static IUsersManager GetInstance
+        public static ITrailsManager GetInstance
         {
             get
             {
@@ -43,7 +43,7 @@ namespace RunWithYouBusiness
                     {
                         if (_instance == null)
                         {
-                            _instance = new UsersManager();
+                            _instance = new TrailsManager();
                         }
                     }
                 }
@@ -51,11 +51,15 @@ namespace RunWithYouBusiness
             }
         }
 
-        public async Task SignInAsync(UsersInformations userInformation)
-        {
-            await usersDataProvider.SignInAsync(userInformation);
-        }
 
+
+        #endregion
+
+        #region public Methods
+        public async Task CreateInAsync(TrailsInformations trail)
+        {
+            await _trailsDataProvider.CreateInAsync(trail);
+        }
 
         #endregion
     }

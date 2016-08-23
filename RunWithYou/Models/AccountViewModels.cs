@@ -1,4 +1,4 @@
-﻿using RunWithYouEntities.Users;
+﻿using RunWithYouEntities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

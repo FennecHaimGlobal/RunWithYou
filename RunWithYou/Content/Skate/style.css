@@ -83,6 +83,10 @@ nav{
 	-ms-transition: all 0.2s ease-in-out 0s;
 	transition: all 0.2s ease-in-out 0s;
 }
+.sub-menu ul li a{
+
+}
+
 .menu li a:hover,.menu li:hover>a{
 	color:#ffffff;
 	background: #e36b2c;
@@ -402,7 +406,7 @@ nav{margin:0;background:none;}.menu li{display:block;margin:0;}.menu li a{backgr
 	width: 90%;
 }
 .f_list li a:before{
-	content: url('../images/right_arrow.png');
+	content: url('../../Images/Skate/right_arrow.png');
 	vertical-align: baseline;
 	margin-right: 10px;
 }

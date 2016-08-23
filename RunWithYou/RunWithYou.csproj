@@ -199,6 +199,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\Trails\TrailsController.cs" />
+    <Compile Include="Models\Trails\TrailsViewModels.cs" />
+    <Compile Include="Models\Trails\JoinTrailsViewModels.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -221,12 +224,16 @@
     <Content Include="Content\Skate\fwslider.css" />
     <Content Include="Content\Skate\jquery.fancybox.css" />
     <Content Include="Content\Skate\owl.carousel.css" />
+    <Content Include="Content\Skate\Social.css" />
     <Content Include="Content\Skate\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\Skate\css\font-awesome.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\imageedit_2.png" />
+    <Content Include="Images\img-sp.png" />
+    <Content Include="Images\running_man_logo.jpg" />
     <Content Include="Images\Skate\ads_pic.jpg" />
     <Content Include="Images\Skate\arrow.png" />
     <Content Include="Images\Skate\arrows.png" />
@@ -278,6 +285,11 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="fonts\Skate\fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\Skate\fonts\FontAwesome.otf" />
+    <Content Include="Views\Trails\Create.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -290,6 +302,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -345,6 +358,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

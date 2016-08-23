@@ -1,20 +1,20 @@
-﻿using RunWithYouEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RunWithYouEntities;
 
 namespace RunWithYouData
 {
-    public class UsersDataProvider: IUsersDataProvider
+    public class TrailsDataProvider : ITrailsDataProvider
     {
         #region Members
 
         /// <summary>
         /// The _instance
         /// </summary>
-        private static IUsersDataProvider _instance;
+        private static ITrailsDataProvider _instance;
 
         /// <summary>
         /// The _locker
@@ -30,7 +30,7 @@ namespace RunWithYouData
         /// <value>
         /// The get instance.
         /// </value>
-        public static IUsersDataProvider GetInstance
+        public static ITrailsDataProvider GetInstance
         {
             get
             {
@@ -40,7 +40,7 @@ namespace RunWithYouData
                     {
                         if (_instance == null)
                         {
-                            _instance = new UsersDataProvider();
+                            _instance = new TrailsDataProvider();
                         }
                     }
                 }
@@ -52,30 +52,33 @@ namespace RunWithYouData
 
         #endregion
 
-        #region Public Methods
-        public async Task SignInAsync(UsersInformations userInformation)
+        #region public Methods
+
+        public async Task CreateInAsync(TrailsInformations trail)
         {
             using (Entities context = new Entities())
             {
-                UsersInformation userEntry = new UsersInformation()
+                Trail trailEntry = new Trail()
                 {
-                    Id = userInformation.Id,
-                    FirstName = userInformation.FirstName,
-                    LastName = userInformation.LastName,
-                    Email = userInformation.Email,
-                    Address = userInformation.Address,
-                    city = userInformation.city,
-                    code = userInformation.code,
-                    country = userInformation.country,
-                    Phone1 = userInformation.Phone1,
-                    Phone2 = userInformation.Phone2
+                    created_by = trail.created_by,
+                    created_date = DateTime.UtcNow,
+                    update_date = DateTime.UtcNow,
+                    date_of_trail = trail.date_of_trail,
+                    place_of_start = trail.place_of_start,
+                    distance = trail.distance,
+                    type_of_trail = trail.type_of_trail,
+                    description = trail.description,
+                    geo_location = trail.geo_location,
+                    city = trail.city,
+                    country = trail.country
                 };
 
-                context.UsersInformations.Add(userEntry);
+                context.Trails.Add(trailEntry);
 
                 context.SaveChanges();
             }
         }
         #endregion
+
     }
 }

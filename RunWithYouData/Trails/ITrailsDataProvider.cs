@@ -7,8 +7,8 @@ using RunWithYouEntities;
 
 namespace RunWithYouData
 {
-    public interface IUsersDataProvider
+    public interface ITrailsDataProvider
     {
-        Task SignInAsync(UsersInformations userInformation);
+        Task CreateInAsync(TrailsInformations trail);
     }
 }

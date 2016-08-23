@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RunWithYou.Models;
-using RunWithYouBusiness.Users;
+using RunWithYouBusiness;
 
 namespace RunWithYou.Controllers
 {

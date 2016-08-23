@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trails\ITrailsManager.cs" />
+    <Compile Include="Trails\TrailsManager.cs" />
     <Compile Include="Users\IUsersManager.cs" />
     <Compile Include="Users\UsersManager.cs" />
   </ItemGroup>

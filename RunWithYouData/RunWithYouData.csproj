@@ -66,21 +66,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
-      <DependentUpon>MetaDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUser.cs">
-      <DependentUpon>MetaDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>MetaDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>MetaDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>MetaDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MetaDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +85,8 @@
     <Compile Include="Trail.cs">
       <DependentUpon>MetaDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Trails\ITrailsDataProvider.cs" />
+    <Compile Include="Trails\TrailsDataProvider.cs" />
     <Compile Include="UsersInformation.cs">
       <DependentUpon>MetaDataModel.tt</DependentUpon>
     </Compile>
