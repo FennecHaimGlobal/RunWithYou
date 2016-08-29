@@ -54,6 +54,36 @@ namespace RunWithYouData
 
         #region public Methods
 
+        public async Task<List<TrailsInformations>> GetAllActivesTrails()
+        {
+            List<TrailsInformations> result = new List<TrailsInformations>();
+
+            using (Entities context = new Entities())
+            {
+                var response = context.Trails.Where(T => T.date_of_trail >= DateTime.UtcNow).ToList();
+
+                if (response.Count > 0)
+                {
+                    result = response.Select(T => new TrailsInformations()
+                    {
+                        Id = T.Id,
+                        created_by = T.created_by,
+                        created_date = T.created_date,
+                        date_of_trail = T.date_of_trail,
+                        distance = T.distance,
+                        city = T.city,
+                        country = T.country,
+                        place_of_start = T.place_of_start,
+                        type_of_trail = T.type_of_trail,
+                        geo_location = T.geo_location,
+                        description = T.description
+                    }).ToList();
+                }
+            }
+
+            return result;
+        }
+
         public async Task CreateInAsync(TrailsInformations trail)
         {
             try

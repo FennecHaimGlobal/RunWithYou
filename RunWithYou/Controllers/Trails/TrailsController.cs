@@ -1,7 +1,9 @@
 ﻿using RunWithYou.Models;
 using RunWithYouBusiness;
+using RunWithYouEntities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
@@ -28,6 +30,12 @@ namespace RunWithYou.Controllers
         // GET: Trails/Trails/Create
         public ActionResult Create()
         {
+            ViewBag.trailtype = new TrailTypes().TrailType
+                              .Select(p=> new SelectListItem
+                              {
+                                  Text = p.DisplayName,
+                                  Value = p.EnglishName,
+                              }).ToList();
             return View();
         }
 

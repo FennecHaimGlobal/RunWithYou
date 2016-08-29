@@ -100,18 +100,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="aspnet-RunWithYou-20160822080836.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="aspnet-RunWithYou-20160822080836_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>aspnet-RunWithYou-20160822080836.mdf</DependentUpon>
-    </Content>
     <Content Include="MetaDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MetaDataModel.edmx</DependentUpon>
       <LastGenOutput>MetaDataModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="MetaDataModel.edmx.sql" />
     <Content Include="MetaDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MetaDataModel.edmx</DependentUpon>

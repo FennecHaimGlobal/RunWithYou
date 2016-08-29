@@ -22,7 +22,7 @@
           <Property Name="city" Type="nvarchar" MaxLength="100" />
           <Property Name="country" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="UsersInformation">
+        <EntityType Name="UsersInformations">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -39,7 +39,7 @@
         </EntityType>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Trails" EntityType="Self.Trails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UsersInformation" EntityType="Self.UsersInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersInformations" EntityType="Self.UsersInformations" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -85,45 +85,44 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="UsersInformations">
-            <EntityTypeMapping TypeName="Model.UsersInformation">
-              <MappingFragment StoreEntitySet="UsersInformation">
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
-                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Trails">
-            <EntityTypeMapping TypeName="Model.Trail">
-              <MappingFragment StoreEntitySet="Trails">
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="geo_location" ColumnName="geo_location" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="type_of_trail" ColumnName="type_of_trail" />
-                <ScalarProperty Name="distance" ColumnName="distance" />
-                <ScalarProperty Name="place_of_start" ColumnName="place_of_start" />
-                <ScalarProperty Name="date_of_trail" ColumnName="date_of_trail" />
-                <ScalarProperty Name="update_date" ColumnName="update_date" />
-                <ScalarProperty Name="created_date" ColumnName="created_date" />
-                <ScalarProperty Name="created_by" ColumnName="created_by" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="UsersInformations">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.UsersInformation)">
+        <MappingFragment StoreEntitySet="UsersInformations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trails">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Trail)">
+        <MappingFragment StoreEntitySet="Trails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="date_of_trail" ColumnName="date_of_trail" />
+          <ScalarProperty Name="place_of_start" ColumnName="place_of_start" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="type_of_trail" ColumnName="type_of_trail" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="geo_location" ColumnName="geo_location" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -137,7 +136,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
