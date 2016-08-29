@@ -1,7 +1,6 @@
 ﻿@model RunWithYou.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>Use another service to log in.</h4>
 <hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
@@ -15,24 +14,17 @@
         </div>
     }
     else {
-        @Html.AntiForgeryToken()
-        <div class="social-icons">
-            <ul class="social-networks square spin-icon">
-                <li><a href="/Account/ExternalLogin?provider=Facebook&returnUrl=Facebook" class="icon-facebook"></a></li>
-                @*<li><a href="#" class="icon-twitter"></a></li>
-                    <li><a href="#" class="icon-g-plus"></a></li>
-                    <li><a href="#" class="icon-dribble"> </a></li>
-                    <li><a href="#" class="icon-instagram"> </a></li>
-                    <li><a href="#" class="icon-pinterest"> </a></li>*@
-            </ul>
-        </div>
-        @*<div id="socialLoginList">
-
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList">
                 <p>
-                    @foreach (AuthenticationDescription p in loginProviders) {
-                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        <button type="submit" class="btn btn-default icon-@p.Caption.ToLower()" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
                     }
                 </p>
-            </div>*@
-    }
+            </div>
+            }
+        }
 }

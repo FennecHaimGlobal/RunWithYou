@@ -58,7 +58,14 @@ namespace RunWithYouBusiness
         #region public Methods
         public async Task CreateInAsync(TrailsInformations trail)
         {
-            await _trailsDataProvider.CreateInAsync(trail);
+            try
+            {
+                await _trailsDataProvider.CreateInAsync(trail);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         #endregion

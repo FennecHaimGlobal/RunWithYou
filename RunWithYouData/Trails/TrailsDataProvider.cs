@@ -56,26 +56,33 @@ namespace RunWithYouData
 
         public async Task CreateInAsync(TrailsInformations trail)
         {
-            using (Entities context = new Entities())
+            try
             {
-                Trail trailEntry = new Trail()
+                using (Entities context = new Entities())
                 {
-                    created_by = trail.created_by,
-                    created_date = DateTime.UtcNow,
-                    update_date = DateTime.UtcNow,
-                    date_of_trail = trail.date_of_trail,
-                    place_of_start = trail.place_of_start,
-                    distance = trail.distance,
-                    type_of_trail = trail.type_of_trail,
-                    description = trail.description,
-                    geo_location = trail.geo_location,
-                    city = trail.city,
-                    country = trail.country
-                };
+                    Trail trailEntry = new Trail()
+                    {
+                        created_by = trail.created_by,
+                        created_date = DateTime.UtcNow,
+                        update_date = DateTime.UtcNow,
+                        date_of_trail = trail.date_of_trail,
+                        place_of_start = trail.place_of_start,
+                        distance = trail.distance,
+                        type_of_trail = trail.type_of_trail,
+                        description = trail.description,
+                        geo_location = trail.geo_location,
+                        city = trail.city,
+                        country = trail.country
+                    };
 
-                context.Trails.Add(trailEntry);
+                    context.Trails.Add(trailEntry);
 
-                context.SaveChanges();
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         #endregion
