@@ -16,7 +16,11 @@
     }
 
     #map {
-        height: 100%;
+        height: 410px;
+    }
+
+    .form-horizontal .control-label.label-on-left {
+        text-align: left;
     }
 
     .more-pading {
@@ -29,84 +33,87 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-11 text-info">
+                <h4>Create a new Trail and invite friend</h4>
+            </div>
+        </div>
 
-        <table style="width:100%; height:400px;">
-            <tr>
-                <td style="width: 46%;">
-                    <div class="form-horizontal">
-                        <br />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-horizontal">
+                    <br />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                        @Html.HiddenFor(model => model.Trail.geo_location, new { id = "encoded-polyline" })
+                    @Html.HiddenFor(model => model.Trail.geo_location, new { id = "encoded-polyline" })
 
-                        <div class="form-group input-group-sm">
-                            @Html.LabelFor(model => model.Trail.date_of_trail, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10 more-pading">
-                                @Html.EditorFor(model => model.Trail.date_of_trail, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                @Html.ValidationMessageFor(model => model.Trail.date_of_trail, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Trail.place_of_start, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10 more-pading">
-                                @Html.EditorFor(model => model.Trail.place_of_start, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Trail.place_of_start, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Trail.distance, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10 more-pading">
-                                @Html.EditorFor(model => model.Trail.distance, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Trail.distance, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Trail.type_of_trail, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10 more-pading">
-                                @Html.DropDownListFor(model => model.Trail.type_of_trail, (IEnumerable<SelectListItem>)ViewBag.trailtype, new { @class = "form-control" } )
-                                @Html.ValidationMessageFor(model => model.Trail.type_of_trail, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Trail.description, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10 more-pading">
-                                @Html.EditorFor(model => model.Trail.description, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Trail.description, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Trail.city, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10 more-pading">
-                                @Html.EditorFor(model => model.Trail.city, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Trail.city, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Trail.country, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10 more-pading">
-                                @Html.EditorFor(model => model.Trail.country, new { htmlAttributes = new { @class = "form-control", id = "encoded-country" } })
-                                @Html.ValidationMessageFor(model => model.Trail.country, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" />
-                            </div>
+                    <div class="form-group input-group-sm">
+                        @Html.LabelFor(model => model.Trail.date_of_trail, htmlAttributes: new { @class = "label-on-left text-primary control-label col-md-3" })
+                        <div class="col-md-7 more-pading">
+                            @Html.EditorFor(model => model.Trail.date_of_trail, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.Trail.date_of_trail, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </td>
-                <td>
-                    <div id="map"></div>
-                </td>
-            </tr>
-        </table>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Trail.place_of_start, htmlAttributes: new { @class = "control-label text-primary label-on-left col-md-3" })
+                        <div class="col-md-7 more-pading">
+                            @Html.EditorFor(model => model.Trail.place_of_start, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Trail.place_of_start, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Trail.distance, htmlAttributes: new { @class = "control-label text-primary label-on-left col-md-3" })
+                        <div class="col-md-7 more-pading">
+                            @Html.EditorFor(model => model.Trail.distance, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Trail.distance, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Trail.type_of_trail, htmlAttributes: new { @class = "control-label text-primary label-on-left col-md-3" })
+                        <div class="col-md-7 more-pading">
+                            @Html.DropDownListFor(model => model.Trail.type_of_trail, (IEnumerable<SelectListItem>)ViewBag.trailtype, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Trail.type_of_trail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Trail.description, htmlAttributes: new { @class = "control-label text-primary label-on-left col-md-3" })
+                        <div class="col-md-7 more-pading">
+                            @Html.EditorFor(model => model.Trail.description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Trail.description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Trail.city, htmlAttributes: new { @class = "control-label text-primary label-on-left col-md-3" })
+                        <div class="col-md-7 more-pading">
+                            @Html.EditorFor(model => model.Trail.city, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Trail.city, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Trail.country, htmlAttributes: new { @class = "label-on-left text-primary control-label col-md-3" })
+                        <div class="col-md-7 more-pading">
+                            @Html.EditorFor(model => model.Trail.country, new { htmlAttributes = new { @class = "form-control", id = "encoded-country" } })
+                            @Html.ValidationMessageFor(model => model.Trail.country, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div id="map"></div>
+            </div>
+        </div>
     }
 
     <script>
@@ -150,7 +157,7 @@
                        });
 
                     infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
+                    infoWindow.setContent('Your Position');
                     map.setCenter(pos);
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
@@ -197,9 +204,5 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlMv8xn211_jUD090RoKzKl628cNECFXQ&libraries=drawing&callback=initMap"
             async defer></script>
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 
 </div>

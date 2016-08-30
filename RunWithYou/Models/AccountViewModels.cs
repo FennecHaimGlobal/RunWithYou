@@ -7,6 +7,9 @@ namespace RunWithYou.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
